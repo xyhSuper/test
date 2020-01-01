@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        tr,th,td{
+            border: 1px solid #f99;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        Vue-demo
+        <component :is="flag" @change="changeFlag"></component>
+    </div>
+
+    <script src="./component/login.js"></script>
+    <script src="./component/userinfo.js"></script>
+    <script src="./component/question.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                flag:'login'
+            },
+            methods: {
+                changeFlag(data){
+                    this.flag = data
+                }
+            },
+            
+        })
+    </script>
+</body>
+</html>
